@@ -52,6 +52,7 @@ utf8_encode(date("D, j M Y H:i:s ").'GMT'));
 $cha->appendChild($hea);
 
 foreach ($json as $key => $value) {
+#for ($i=0; $i <= 1; $i++) { 
 	$itm = $xml->createElement('item');
     $cha->appendChild($itm);
 
@@ -59,10 +60,9 @@ foreach ($json as $key => $value) {
 	$value->headline); 
 	$itm->appendChild($dat);
 
-
-	$dat = $xml->createElement('description',
-	utf8_encode('Neues Kapitel in Manga '+$value->manga+" von "+$value->author+" gepostet.")); 
-	$itm->appendChild($dat);    
+	$string = "Neues Kapitel in Manga $value->manga von $value->author gepostet.";
+	$dat = $xml->createElement('description',utf8_encode($string)); 
+	$itm->appendChild($dat);
 
 	$dat = $xml->createElement('link',
 	htmlentities($value->url));
