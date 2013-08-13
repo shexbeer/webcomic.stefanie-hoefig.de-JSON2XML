@@ -1,5 +1,5 @@
 <?php
-import "url.php"
+require_once("url.php");
 
 $content = file_get_contents($url);
 $json = json_decode($content);
